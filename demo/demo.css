@@ -1,0 +1,17 @@
+
+#neat_instant {
+    display: inline-block;
+    background: navy;
+    color: white;
+    border-radius: 0.5em;
+    cursor: pointer;
+    text-align: center;
+    width: 5em;
+    height: 5em;
+    line-height: 5em;
+}
+
+#neat_instant:hover {
+    background: blue;
+}
+
