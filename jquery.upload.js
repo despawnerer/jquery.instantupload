@@ -8,6 +8,7 @@
             url: '',
             name: '',
             enctype: 'multipart/form-data',
+            select: function(id, filename) {},
             submit: function(id) {},
             error: function(id, error) {},
             success: function(id, response) {}
@@ -112,7 +113,16 @@
 
         // watch the file selection and submit the form when a file is changed
         this.input.change(function() {
-            self.submit();
+            var filename = self.input.val();
+            // call the user-provided select function, which can be used to
+            // validate the filename to determine if we should submit or not
+            if (self.options.select) {
+                if (self.options.select(self.id, filename) != false) {
+                    self.submit();
+                }
+            } else {
+                self.submit();
+            }
         });
 
     }
