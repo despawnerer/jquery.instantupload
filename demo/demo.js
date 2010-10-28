@@ -1,21 +1,31 @@
 
 $(function() {
 
-    /* Test the instant upload */
+    /* Test the instant uploaders */
 
-    var button = $('#neat_instant');
-    button.upload({
-        select: function(id, filename) {
-            alert('selected in uploader ' + id + ': ' + filename);
-        },
-        submit: function(id) {
-            alert('submitted uploader ' + id);
-        },
+    $('#neat_instant_success').upload({
+        success: function(id, response) {
+            alert('Everything seems fine!');
+        }
+    });
+
+    $('#neat_instant_error').upload({
+        url: 'nonexistant_file.html',
         error: function(id, error) {
-            alert('error in uploader ' + id + '; "' + error + '"');
+            alert('Whoops, an error happened: ' + error);
+        }
+    });
+
+    $('#neat_instant_jpeg').upload({
+        select: function(id, filename) {
+            var extension = filename.split('.').pop().toLowerCase();
+            if ($.inArray(extension, ['jpeg', 'jpg']) < 0) {
+                alert('This is not a jpeg.');
+                return false;
+            }
         },
-        success: function(id) {
-            alert('uploader ' + id + ' succeeded');
+        success: function(id, response) {
+            alert('Everything seems fine!');
         }
     });
 

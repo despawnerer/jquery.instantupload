@@ -1,17 +1,21 @@
 
-#neat_instant {
+.uploader {
     display: inline-block;
     background: navy;
     color: white;
     border-radius: 0.5em;
     cursor: pointer;
     text-align: center;
-    width: 5em;
-    height: 5em;
-    line-height: 5em;
+    width: 8em;
+    height: 4em;
+    line-height: 4em;
 }
 
-#neat_instant:hover {
-    background: blue;
+.uploader:hover {
+    background: blue !important;
 }
+
+#neat_instant_success { background: green; }
+#neat_instant_error { background: red; }
+
 
