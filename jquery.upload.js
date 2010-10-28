@@ -8,7 +8,6 @@
             url: '',
             name: '',
             enctype: 'multipart/form-data',
-            extensions: [],
             submit: function(id) {},
             error: function(id, error) {},
             success: function(id, response) {}
@@ -111,18 +110,9 @@
             });
         }
 
-        // watch the file selection
+        // watch the file selection and submit the form when a file is changed
         this.input.change(function() {
-            // validate the selection's extension, if needed
-            // and call the appropriate user-defined callbacks
-            var filename = $(this).val();
-            var extension = filename.split('.').pop().toLowerCase();
-            if (self.options.extensions.length > 0 && $.inArray(extension, self.options.extensions) < 0) {
-                self.options.error(self.id, 'extension');
-                self.input.val('');
-            } else {
-                self.submit();
-            }
+            self.submit();
         });
 
     }
