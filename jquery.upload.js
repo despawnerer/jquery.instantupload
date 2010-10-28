@@ -11,7 +11,8 @@
             select: function(id, filename) {},
             submit: function(id) {},
             error: function(id, error) {},
-            success: function(id, response) {}
+            success: function(id, response) {},
+            complete: function(id) {}
         }, options);
 
         this.each(function() {
@@ -151,6 +152,7 @@
                 } else {
                     self.options.error(id, 'not_loaded');
                 }
+                self.options.complete(id);
                 // remove the frame
                 $(this).remove();
             });
