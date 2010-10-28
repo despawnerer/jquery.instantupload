@@ -8,7 +8,7 @@
             url: '',
             name: '',
             enctype: 'multipart/form-data',
-            select: function(id, filename) {},
+            select: function(id, filename) { return true; },
             submit: function(id) {},
             error: function(id, error) {},
             success: function(id, response) {},
@@ -117,11 +117,7 @@
             var filename = self.input.val();
             // call the user-provided select function, which can be used to
             // validate the filename to determine if we should submit or not
-            if (self.options.select) {
-                if (self.options.select(self.id, filename) != false) {
-                    self.submit();
-                }
-            } else {
+            if (self.options.select(self.id, filename) != false) {
                 self.submit();
             }
         });
