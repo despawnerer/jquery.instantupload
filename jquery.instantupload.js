@@ -17,10 +17,10 @@
             url: '',
             name: '',
             enctype: 'multipart/form-data',
-            select: function(id, filename) { return true; },
+            select: function(filename, id) { return true; },
             submit: function(id) {},
-            error: function(id, error) {},
-            success: function(id, response) {},
+            error: function(error, id) {},
+            success: function(response, id) {},
             complete: function(id) {}
         }, options);
 
@@ -128,7 +128,7 @@
             var filename = self.input.val();
             // call the user-provided select function, which can be used to
             // validate the filename to determine if we should submit or not
-            if (self.options.select(self.id, filename) != false) {
+            if (self.options.select(filename, self.id) != false) {
                 self.submit();
             }
         });
@@ -155,9 +155,9 @@
                 if (document) {
                     // get the response in plain text and call the callback
                     var response = $(this.contentWindow.document.body).html();
-                    self.options.success(id, response);
+                    self.options.success(response, id);
                 } else {
-                    self.options.error(id, 'not_loaded');
+                    self.options.error('not_loaded', id);
                 }
                 self.options.complete(id);
                 // remove the frame
