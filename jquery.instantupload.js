@@ -8,6 +8,8 @@
 
 (function($) {
 
+    /* jQuery function binding */
+
     $.fn.upload = function(options) {
 
         // merge the options with defaults
@@ -29,6 +31,8 @@
         return this;
 
     },
+
+    /* The main Uploader object that actually controls the process */
 
     Uploader = function(element, options) {
 
