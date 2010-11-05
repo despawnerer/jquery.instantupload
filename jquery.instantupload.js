@@ -1,3 +1,10 @@
+/*!
+ * jQuery Instant Upload plugin
+ *
+ * Copyright 2010, Alexey Shelf
+ * Licensed under GPLv3 or later.
+ * http://www.gnu.org/licenses/
+ */
 
 (function($) {
 
