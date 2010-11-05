@@ -1,5 +1,5 @@
 /*!
- * jQuery Instant Upload plugin
+ * jQuery Instant Upload plugin, v0.1
  *
  * Copyright 2010, Alexey Shelf
  * Licensed under GPLv3 or later.
